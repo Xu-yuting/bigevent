@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>大事件项目 - 后台大布局</title>
-
-    <!-- 判断本地存储是否有token信息：解决index页面内一闪而过问题 -->
+    <!-- 判断本地存储是否有token信息: 解决index页面一闪而过问题 -->
     <script>
         let token = localStorage.getItem("token");
         if (!token) {
-            llocation.href = "/home/login.html";
+            // 去登录页面
+            location.href = "/home/login.html";
         }
     </script>
 
@@ -51,7 +51,7 @@
                     <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
                     <!-- text-avatar 文字头像 -->
                     <span class="text-avatar">A</span>
-                    <span id="welcome">欢迎</span>
+                    <span id="welcome">欢迎 大飞哥</span>
                 </div>
 
                 <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
@@ -70,7 +70,9 @@
                     <li class="layui-nav-item">
                         <a href="javascript:;"><span class="iconfont icon-user"></span>个人中心</a>
                         <dl class="layui-nav-child">
-                            <dd><a href="javascript:;"><i class="layui-icon layui-icon-app"></i>基本资料</a></dd>
+                            <dd><a href="/user/user_info.html" target="layUiBody"><i
+                                        class="layui-icon layui-icon-app"></i>基本资料</a>
+                            </dd>
                             <dd><a href="javascript:;"><i class="layui-icon layui-icon-app"></i>更换头像</a></dd>
                             <dd><a href="javascript:;"><i class="layui-icon layui-icon-app"></i>重置密码</a></dd>
                         </dl>
@@ -82,7 +84,8 @@
         <div class="layui-body">
             <!-- 内容主体区域 -->
             <!-- <div style="padding: 15px;">内容主体区域</div> -->
-            <iframe name="layUiBody" src="/home/dashboard.html"></iframe>
+            <!-- <iframe name="layUiBody" src="/home/dashboard.html"></iframe> -->
+            <iframe name="layUiBody" src="/user/user_info.html"></iframe>
         </div>
 
         <div class="layui-footer">
