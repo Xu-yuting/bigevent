@@ -1,17 +1,17 @@
 let layer = layui.layer;
-
+// getUserInfo需要是全局的，不然获取不到window对象
 function getUserInfo() {
   $.ajax({
     url: "/my/userinfo",
 
     success: function (res) {
-      console.log(res);
+      // console.log(res);
 
       if (res.status !== 0) {
         // 获取用户信息失败
         return layer.msg("获取用户信息失败");
       }
-
+// console.log(res.data);
       // 通过renderUserInfo函数可以将头像和昵称渲染出来
       renderUserInfo(res.data);
     },
@@ -21,13 +21,13 @@ function getUserInfo() {
 getUserInfo();
 
 function renderUserInfo(data) {
-  console.log(data);
+  // console.log(data);
 
   let name = data.nickname || data.username;
 
   // 把名字中的第一个字符取出来转大写，作为文字头像
   let first = name[0].toUpperCase();
-  console.log(name, first);
+  // console.log(name, first);
 
   // 显示名字
   $("#welcome").text("欢迎 " + name);
